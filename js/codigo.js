@@ -47,7 +47,7 @@ casillaAleatoria();
 function tablero() {
 
 
-document.write("<table style=background-color:black>");
+document.write("<table>");
   document.write("<tr>");
     for (let i = 0; i < numero1.length; i++) {
       if (posInicial[0]==1 && posInicial[1]==i+1) {
@@ -134,15 +134,17 @@ document.write("</tr>");
 document.write("</table>");
   }
 
+//Inicio DOM
+let contador=0;
+nMovimientos.value=0;
+function comprobar() {
+  contador=contador+1;
+  nMovimientos.value=contador;
+}
+
+movimientos.value=`(${filaInicial},${colInicial})`;
 
 
-  function casilla() {
-    let nInicialInput=document.getElementById("nInicial");
-      let nInicialInputCovertido=Number(nInicialInput.value);
-
-    let nFinalInput=document.getElementById("nFinal");
-      let nFinalInputCovertido=Number(nFinalInput.value);
-  }
   tablero();
   casilla();
 console.log(posInicial);
