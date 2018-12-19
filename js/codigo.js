@@ -47,7 +47,7 @@ casillaAleatoria();
 function tablero() {
 
 
-document.write("<table align=center style=background-color:black>");
+document.write("<table style=background-color:black>");
   document.write("<tr>");
     for (let i = 0; i < numero1.length; i++) {
       if (posInicial[0]==1 && posInicial[1]==i+1) {
