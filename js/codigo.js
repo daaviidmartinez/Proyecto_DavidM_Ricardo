@@ -138,8 +138,13 @@ document.write("</table>");
 let contador=0;
 nMovimientos.value=0;
 function comprobar() {
-  contador=contador+1;
-  nMovimientos.value=contador;
+  //Numero de Movimientos
+    contador=contador+1;
+    nMovimientos.value=contador;
+  //Fila y Columna
+
+
+  
 }
 
 movimientos.value=`(${filaInicial},${colInicial})`;
