@@ -10,7 +10,7 @@ var numero3=[3,4,1,2,6,3];
 var numero4=[1,4,2,5,6,1];
 var numero5=[5,5,3,2,2,1];
 var numero6=[4,1,4,3,1,3];
-
+var tablero1=[numero1,numero2,numero3,numero4,numero5,numero6];
 var posInicial=[0,0];
 var posFinal=[0,0];
 
@@ -137,20 +137,59 @@ document.write("</table>");
 //Inicio DOM
 let contador=0;
 nMovimientos.value=0;
+mensajes.value="";
 function comprobar() {
   //Numero de Movimientos
     contador=contador+1;
+    posicionNueva=tablero1[fila.value-1][columna.value-1];
     nMovimientos.value=contador;
+
+    var posicionColor=0
+    if (fila.value==1) {
+    var posicionColor=color1[colInicial-1];
+     var colorNuevo=color1[columna.value-1]
+    }
+    if (fila.value==2) {
+      var posicionColor=color2[colInicial-1];
+      var colorNuevo=color2[columna.value-1]
+    }
+    if (fila.value==3) {
+      var posicionColor=color3[colInicial-1];
+      var colorNuevo=color3[columna.value-1]
+    }
+    if (fila.value==4) {
+      var posicionColor=color4[colInicial-1];
+      var colorNuevo=color4[columna.value-1]
+    }
+    if (fila.value==5) {
+      var posicionColor=color5[colInicial-1];
+      var colorNuevo=color5[columna.value-1]
+    }
+    if (fila.value==6) {
+      var posicionColor=color6[colInicial-1];
+      var colorNuevo=color6[columna.value-1]
+    }
   //Fila y Columna
+  if (filaInicial==fila.value || colInicial==columna.value) {
+      if (posicion==posicionNueva || posicionColor==colorNuevo) {
+        filaInicial=fila.value;
+        colInicial=columna.value;
+        posicion=posicionNueva;
+        mensajes.value="Correcto";
+        console.log(posicionNueva);
+        console.log(filaInicial,colInicial);
+      }
+      else {
+        mensajes.value="Error";
+      }
+    }
 
-
-  
+    console.log(fila.value);
 }
-
 movimientos.value=`(${filaInicial},${colInicial})`;
 
 
   tablero();
-  casilla();
+let posicion=tablero1[posInicial[0]-1][posInicial[1]-1];
 console.log(posInicial);
 console.log(posFinal);
