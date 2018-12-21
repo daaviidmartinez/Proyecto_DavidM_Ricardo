@@ -135,57 +135,61 @@ document.write("</table>");
   }
 
 //Inicio DOM
-let contador=0;
-nMovimientos.value=0;
-mensajes.value="";
-function comprobar() {
-  //Numero de Movimientos
-    contador=contador+1;
-    posicionNueva=tablero1[fila.value-1][columna.value-1];
-    nMovimientos.value=contador;
+  let contador=0;
+  nMovimientos.value=0;
+  mensajes.value="";
 
-    var posicionColor=0
-    if (fila.value==1) {
-    var posicionColor=color1[colInicial-1];
-     var colorNuevo=color1[columna.value-1]
-    }
-    if (fila.value==2) {
-      var posicionColor=color2[colInicial-1];
-      var colorNuevo=color2[columna.value-1]
-    }
-    if (fila.value==3) {
-      var posicionColor=color3[colInicial-1];
-      var colorNuevo=color3[columna.value-1]
-    }
-    if (fila.value==4) {
-      var posicionColor=color4[colInicial-1];
-      var colorNuevo=color4[columna.value-1]
-    }
-    if (fila.value==5) {
-      var posicionColor=color5[colInicial-1];
-      var colorNuevo=color5[columna.value-1]
-    }
-    if (fila.value==6) {
-      var posicionColor=color6[colInicial-1];
-      var colorNuevo=color6[columna.value-1]
-    }
-  //Fila y Columna
-  if (filaInicial==fila.value || colInicial==columna.value) {
-      if (posicion==posicionNueva || posicionColor==colorNuevo) {
-        filaInicial=fila.value;
-        colInicial=columna.value;
-        posicion=posicionNueva;
-        mensajes.value="Correcto";
-        console.log(posicionNueva);
-        console.log(filaInicial,colInicial);
+  var posicionColor=0;
+  var colorNuevo=0;
+    function comprobar() {
+    //Numero de Movimientos
+      contador=contador+1;
+      posicionNueva=tablero1[fila.value-1][columna.value-1];
+      nMovimientos.value=contador;
+      movRealizado = document.getElementById("movimientos").value+`(${fila.value}`+`,${columna.value})`;
+      document.getElementById("movimientos").value=movRealizado;
+    //colores
+      if (fila.value==1) {
+      posicionColor=color1[colInicial-1];
+      colorNuevo=color1[columna.value-1];
       }
-      else {
-        mensajes.value="Error";
+      if (fila.value==2) {
+        posicionColor=color2[colInicial-1];
+        colorNuevo=color2[columna.value-1];
       }
-    }
+      if (fila.value==3) {
+        posicionColor=color3[colInicial-1];
+        colorNuevo=color3[columna.value-1];
+      }
+      if (fila.value==4) {
+        posicionColor=color4[colInicial-1];
+        colorNuevo=color4[columna.value-1];
+      }
+      if (fila.value==5) {
+        posicionColor=color5[colInicial-1];
+        colorNuevo=color5[columna.value-1];
+      }
+      if (fila.value==6) {
+        posicionColor=color6[colInicial-1];
+        colorNuevo=color6[columna.value-1];
+      }
+    //Fila,Columna y color
+    if (filaInicial==fila.value || colInicial==columna.value) {
+        if (posicion==posicionNueva || posicionColor==colorNuevo) {
+          filaInicial=fila.value;
+          colInicial=columna.value;
+          posicion=posicionNueva;
+          mensajes.value="Correcto";
+          console.log(posicionNueva);
+          console.log(filaInicial,colInicial);
+        }
+        else {
+          mensajes.value="Error";
+        }
+      }
 
-    console.log(fila.value);
-}
+      console.log(fila.value);
+  }
 movimientos.value=`(${filaInicial},${colInicial})`;
 
 
