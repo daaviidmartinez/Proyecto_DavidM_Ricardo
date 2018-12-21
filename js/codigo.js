@@ -180,14 +180,19 @@ document.write("</table>");
           colInicial=columna.value;
           posicion=posicionNueva;
           mensajes.value="Correcto";
+            if (filaInicial==filaFinal && colInicial==colFinal) {
+              mensajes.value="Ganaste";
+            }
           console.log(posicionNueva);
           console.log(filaInicial,colInicial);
         }
         else {
-          mensajes.value="Error";
+          mensajes.value="No es valido";
         }
       }
-
+      else {
+        mensajes.value="Error";
+      }
       console.log(fila.value);
   }
 movimientos.value=`(${filaInicial},${colInicial})`;
